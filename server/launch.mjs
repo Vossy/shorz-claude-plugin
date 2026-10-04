@@ -49,9 +49,20 @@ export function readBridgeServerPath(tmpdir, readFile = fs.readFileSync) {
   }
 }
 
+// Only the folder variables the lookup needs. The launcher never touches the rest of the
+// environment, and keeping it that way keeps the directory's credential scan clean.
+function lookupEnv() {
+  return {
+    SHORZ_MCP_SERVER_PATH: process.env.SHORZ_MCP_SERVER_PATH,
+    LOCALAPPDATA: process.env.LOCALAPPDATA,
+    ProgramFiles: process.env.ProgramFiles,
+    'ProgramFiles(x86)': process.env['ProgramFiles(x86)'],
+  };
+}
+
 export function resolveServerPath({
   platform = process.platform,
-  env = process.env,
+  env = lookupEnv(),
   homedir = os.homedir(),
   tmpdir = os.tmpdir(),
   exists = fs.existsSync,
@@ -68,7 +79,7 @@ async function main() {
     // stdout is the MCP channel, so every message goes to stderr.
     console.error(
       'Shorz plugin: could not find the Shorz desktop app.\n' +
-        'Install Shorz for Windows or macOS from https://shorz.ai and open it, then restart Claude.\n' +
+        'Install the Shorz desktop app for Windows or macOS (download link in this plugin\'s README) and open it, then restart Claude.\n' +
         'If Shorz is installed in a custom folder, set SHORZ_MCP_SERVER_PATH to its resources/mcp-server/index.js.\n' +
         'Looked in:\n' +
         candidates.map((candidate) => `  - ${candidate}`).join('\n')
