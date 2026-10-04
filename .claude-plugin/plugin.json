@@ -1,0 +1,30 @@
+{
+  "name": "shorz",
+  "displayName": "Shorz",
+  "version": "4.0.8",
+  "description": "Edit and create videos with the Shorz desktop app: auto-edit, clipping, subtitles, AI avatars, podcasts, text-to-video, music videos, motion graphics, thumbnails and publishing to YouTube and TikTok, through 180+ MCP tools.",
+  "author": {
+    "name": "Shorz OÜ",
+    "email": "info@shorz.ai",
+    "url": "https://shorz.ai"
+  },
+  "homepage": "https://shorz.ai/tools/mcp",
+  "repository": "https://github.com/Vossy/shorz-claude-plugin",
+  "license": "MIT",
+  "keywords": [
+    "video",
+    "video-editing",
+    "shorts",
+    "subtitles",
+    "avatar",
+    "podcast",
+    "motion-graphics",
+    "youtube",
+    "tiktok"
+  ],
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://shorz.ai/tools/mcp",
+  "supportUrl": "https://github.com/Vossy/shorz-claude-plugin/issues",
+  "privacyPolicyUrl": "https://shorz.ai/privacy-policy",
+  "termsOfServiceUrl": "https://shorz.ai/terms-of-service"
+}

@@ -1,0 +1,163 @@
+{
+  "source": "ElevenLabs launch films (Avatars, Ads Engine, Flows, Speech Engine, Studio 4, Scribe v2, Composer, ElevenMusic, MCP, Dubbing v2, Eleven v3), measured frame by frame at native 30/60 fps with motion_curves.py; see references/motion-lessons.md",
+  "measured": "2026-09-27",
+  "overshoot": {
+    "moves_measured": 34,
+    "moves_overshooting": 0
+  },
+  "travel": {
+    "consensus_bezier": [
+      0.64,
+      0.09,
+      0.37,
+      0.88
+    ],
+    "peak_speed_at": 0.54,
+    "t50": 0.51,
+    "t90": 0.76,
+    "peak_over_avg_speed_by_distance_px": {
+      "0-250": 2.9,
+      "250-700": 3.5,
+      "700+": 3.9
+    },
+    "duration_s": "0.14 + 0.038*sqrt(px)"
+  },
+  "settle": {
+    "consensus_bezier": [
+      0.5,
+      0.2,
+      0.18,
+      0.95
+    ],
+    "peak_speed_at": 0.37,
+    "t50": 0.37,
+    "t90": 0.64
+  },
+  "enter": {
+    "bezier": [
+      0.16,
+      1,
+      0.3,
+      1
+    ],
+    "t90_fraction": [
+      0.19,
+      0.35
+    ],
+    "total_s": [
+      0.8,
+      1.1
+    ],
+    "blur_clears_over_whole_entrance": true
+  },
+  "exit": {
+    "bezier": [
+      0.3,
+      0,
+      0.75,
+      0
+    ]
+  },
+  "pixel_reveal_10_90_ms": [
+    100,
+    250
+  ],
+  "motion_blur": {
+    "sharpness_pct_of_rest_when_faster_than_20px_per_frame": [
+      40,
+      85
+    ],
+    "min_pct_at_peak": [
+      10,
+      60
+    ],
+    "peak_speeds_px_per_frame": [
+      67,
+      170
+    ],
+    "measure": "translation-dominant frames only, each compared with the resting frames within 0.7 s; whole films read 66-92% (Flows 66, Ads Engine 92, Avatars 92)"
+  },
+  "breathing": {
+    "drifting_share_of_quiet_moments": [
+      0.55,
+      0.76
+    ],
+    "zoom_pct_per_s": [
+      1.4,
+      2.7
+    ],
+    "pan_px_per_s": [
+      13,
+      33
+    ]
+  },
+  "container_grow": {
+    "examples": "Dubbing v2 card -> full frame at 6.0 s and 38.9 s; pill -> card at 4.9 s",
+    "curve": "settle",
+    "duration_s": [
+      0.78,
+      0.85
+    ],
+    "corner_travel_px": [
+      444,
+      548
+    ],
+    "t50": [
+      0.4,
+      0.48
+    ],
+    "t90": [
+      0.69,
+      0.73
+    ],
+    "peak_speed_at": [
+      0.38,
+      0.49
+    ],
+    "motion_blur": "none (sharpness >= 90% of rest)",
+    "launch": "out of the drift: the card is already growing slowly before the move"
+  },
+  "fullframe_shrink_exit": {
+    "example": "Dubbing v2 full frame -> wall of frames at 29.2 s",
+    "curve": "exit (accelerating)",
+    "duration_s": 0.4,
+    "sharpness_pct_of_rest_at_end": 20,
+    "then": "hard cut; the next scene starts blurred and sharpens over ~0.4 s"
+  },
+  "reveal": {
+    "consensus_bezier": [
+      0.16,
+      0.26,
+      0.16,
+      0.84
+    ],
+    "t50": 0.22,
+    "t90": 0.67,
+    "peak_speed_at": 0.12,
+    "space": "log (geometric zoom)",
+    "examples": "Avatars scatter x0.54 in 0.78s; Composer pull-back x0.38 in 1.23s",
+    "note": "EASE_ENTER jumps (x0.84 in one frame); EASE_SETTLE starts too late"
+  },
+  "drift_direction": {
+    "holds_measured": 140,
+    "films": 9,
+    "consecutive_same_direction": "rare",
+    "shares": {
+      "diagonal": 0.34,
+      "horizontal_both_ways": 0.26,
+      "vertical": 0.09,
+      "zoom_only": 0.07,
+      "nearly_still": 0.19
+    }
+  },
+  "transitions": {
+    "see": "references/transitions.md",
+    "laws": [
+      "accelerate out (EXIT 10-16f), settle in (SETTLE 18-24f), switch at the fastest frame",
+      "blur peaks at the switch",
+      "big scale changes are geometric; entrances pop in linear from 0.6-0.9",
+      "never mix two busy images 50/50: pass through a wash, near-black or a duotone",
+      "the camera never stops"
+    ]
+  }
+}
